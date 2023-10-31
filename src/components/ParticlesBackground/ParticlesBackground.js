@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import Particles from "react-tsparticles";
-//import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
+// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "tsparticles-slim"; 
  
 const options = {
@@ -62,7 +62,7 @@ const options = {
             value: 0.5,
         },
         shape: {
-            type: "circle",
+            type: "line_linked",
         },
         size: {
             value: { min: 1, max: 5 },
