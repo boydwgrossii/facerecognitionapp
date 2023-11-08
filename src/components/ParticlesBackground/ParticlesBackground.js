@@ -22,7 +22,7 @@ const options = {
         },
         modes: {
             push: {
-                quantity: 4,
+                quantity: 10,
             },
             repulse: {
                 distance: 200,
@@ -48,7 +48,7 @@ const options = {
                 default: "bounce",
             },
             random: false,
-            speed: 6,
+            speed: 3,
             straight: false,
         },
         number: {
@@ -56,7 +56,7 @@ const options = {
                 enable: true,
                 area: 800,
             },
-            value: 80,
+            value: 150,
         },
         opacity: {
             value: 0.5,
