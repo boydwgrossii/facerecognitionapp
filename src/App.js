@@ -16,52 +16,52 @@ const app = new Clarifai.App({
 });
 
 // Your PAT (Personal Access Token) can be found in the portal under Authentification
-8const PAT = 'e6d40c13b96640aeaf443dbf45b50419';
+const PAT = 'e6d40c13b96640aeaf443dbf45b50419';
 
-11const USER_ID = 'l45kbs34os7l';       
-12const APP_ID = 'test';
-13// Change these to whatever model and image URL you want to use
-14const MODEL_ID = 'face-detection';
-15const MODEL_VERSION_ID = '6dc7e46bc9124c5c8824be4822abe105';    
-16const IMAGE_URL = 'https://samples.clarifai.com/metro-north.jpg';
-17
-18///////////////////////////////////////////////////////////////////////////////////
-19// YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
-20///////////////////////////////////////////////////////////////////////////////////
-21
-22const raw = JSON.stringify({
-23    "user_app_id": {
-24        "user_id": USER_ID,
-25        "app_id": APP_ID
-26    },
-27    "inputs": [
-28        {
-29            "data": {
-30                "image": {
-31                    "url": IMAGE_URL
-32                }
-33            }
-34        }
-35    ]
-36});
-37
-38const requestOptions = {
-39    method: 'POST',
-40    headers: {
-41        'Accept': 'application/json',
-42        'Authorization': 'Key ' + PAT
-43    },
-44    body: raw
-45};
-46
-47// NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
-48// https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
-49// this will default to the latest version_id
-50
-51fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
-52    .then(response => response.text())
-53    .then(result => console.log(result))
-54    .catch(error => console.log('error', error));
+const USER_ID = 'l45kbs34os7l';       
+const APP_ID = 'test';
+// Change these to whatever model and image URL you want to use
+const MODEL_ID = 'face-detection';
+const MODEL_VERSION_ID = '6dc7e46bc9124c5c8824be4822abe105';    
+const IMAGE_URL = 'https://samples.clarifai.com/metro-north.jpg';
+
+///////////////////////////////////////////////////////////////////////////////////
+// YOU DO NOT NEED TO CHANGE ANYTHING BELOW THIS LINE TO RUN THIS EXAMPLE
+///////////////////////////////////////////////////////////////////////////////////
+
+const raw = JSON.stringify({
+    "user_app_id": {
+        "user_id": USER_ID,
+        "app_id": APP_ID
+    },
+    "inputs": [
+        {
+            "data": {
+                "image": {
+                    "url": IMAGE_URL
+                }
+            }
+        }
+    ]
+});
+
+const requestOptions = {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Key ' + PAT
+    },
+    body: raw
+};
+
+// NOTE: MODEL_VERSION_ID is optional, you can also call prediction with the MODEL_ID only
+// https://api.clarifai.com/v2/models/{YOUR_MODEL_ID}/outputs
+// this will default to the latest version_id
+
+fetch("https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
 
 class App extends Component {
   constructor() {
